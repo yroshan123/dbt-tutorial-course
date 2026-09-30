@@ -1,0 +1,27 @@
+{
+    "python-envs.defaultEnvManager": "ms-python.python:venv",
+    "python.defaultInterpreterPath": "/Users/roshanyarlagadda/Documents/Projects/dbt-tutorial-course/venv/bin/python",
+    "dbt.dbtPythonPathOverride": "/Users/roshanyarlagadda/Documents/Projects/dbt-tutorial-course/venv/bin/python",
+    "dbt.installDepsOnProjectInitialization": false,
+
+    // SchemaStore validates dbt YAML against the dbt Fusion (2.0) schema, which
+    // rejects valid dbt Core syntax such as top-level loaded_at_field. This
+    // project runs dbt Core, so validate against the dbt Core schemas instead.
+    "yaml.schemaStore.enable": false,
+    "yaml.schemas": {
+        "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/latest/dbt_yml_files-latest.json": [
+            "**/models/**/*.yml",
+            "**/seeds/**/*.yml",
+            "**/snapshots/**/*.yml",
+            "**/macros/**/*.yml",
+            "**/analyses/**/*.yml",
+            "**/tests/**/*.yml"
+        ],
+        "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/latest/dbt_project-latest.json": [
+            "**/dbt_project.yml"
+        ],
+        "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/latest/packages-latest.json": [
+            "**/packages.yml"
+        ]
+    }
+}
